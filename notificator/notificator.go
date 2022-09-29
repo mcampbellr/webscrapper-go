@@ -15,7 +15,7 @@ func NotifyIfNotSoldOut() {
 
 	auth := vonage.CreateAuthFromKeySecret(API_KEY, API_SECRET)
 	smsClient := vonage.NewSMSClient(auth)
-	response, errResp, err := smsClient.Send(number, number, "THE KEYBORD IS AVAILABLE", vonage.SMSOpts{})
+	response, errResp, err := smsClient.Send(number, number, "THE KINESIS KEYBORD IS AVAILABLE", vonage.SMSOpts{})
 
 	if err != nil {
 		panic(err)

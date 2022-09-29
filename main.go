@@ -10,7 +10,7 @@ import (
 
 func main() {
 	crn := cron.New()
-	crn.AddFunc("@every 5s", func() { scrapper(crn) })
+	crn.AddFunc("@every 1h", func() { scrapper(crn) })
 	crn.Start()
 	fmt.Scanln()
 }
@@ -25,7 +25,7 @@ func scrapper(c *cron.Cron) {
 		e.ForEach("a", func(i int, h *colly.HTMLElement) {
 			linkText := h.Text
 
-			if linkText == "Sold out t" {
+			if linkText == "Sold out" {
 				isSold = true
 			}
 		})
