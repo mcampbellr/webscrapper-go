@@ -10,6 +10,7 @@ import (
 
 func main() {
 	crn := cron.New()
+	scrapper(crn)
 	crn.AddFunc("@every 1h", func() { scrapper(crn) })
 	crn.Start()
 	fmt.Scanln()
@@ -33,6 +34,8 @@ func scrapper(c *cron.Cron) {
 		if !isSold {
 			notificator.NotifyIfNotSoldOut()
 			c.Stop()
+		} else {
+			fmt.Println("Currently Sold")
 		}
 	})
 

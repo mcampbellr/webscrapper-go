@@ -23,7 +23,6 @@ func NotifyIfNotSoldOut() {
 
 	if response.Messages[0].Status == "0" {
 		fmt.Println("Message sent")
-
 		fmt.Println("Account Balance: " + response.Messages[0].RemainingBalance)
 	} else {
 		fmt.Println("Error code " + errResp.Messages[0].Status + ": " + errResp.Messages[0].ErrorText)
